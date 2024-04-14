@@ -12,14 +12,14 @@
 import Child from "./child.vue"
 import {ref} from 'vue'
 
-//TODO 传属性值给子组件 ，且可以双向绑定
-const msg = ref("sent t o child ")
-
+//  传属性值给子组件 ，且可以双向绑定
+const title = ref("sent t o child ")
+const arr = [1,2,3]
 </script>
 
 <template>
-  <input v-model = msg />
-  <child :msg = msg> </child>
+  <input v-model = title />
+  <child :title = title :arr=arr> </child>
 </template>
 
 <style scoped>

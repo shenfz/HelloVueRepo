@@ -8,17 +8,38 @@
  * @email         1328919715@qq.com
  */
 
-// todo 子组件接收值 需要自定义
-const props = defineProps({
-  msg: String
+    // 1.子组件接收属性，需要自定义
+    // 2.模板中使用，可以直接 `{{ title}}` 访问
+    // 3.js部分访问，需要定义常量接收后，再索引使用
+//======================================= js
+/*const props = defineProps({
+      title:{
+        msg: String,
+        default:"默认值"
+      },
+      arr:[]
+
 })
+console.log(props.title)*/
+
+//===================================== ts
+// withDefaults 是  ts特有的。给参数绑定默认值
+ withDefaults(defineProps<{
+  title:string,
+  arr:number[]
+}>(),{
+   title: () => "默认值",
+   arr:() =>{
+     return [0,0,0]
+   }
+ })
 
 </script>
 
 <template>
- <h1> {{ msg  || 'nothing get from father component'}}</h1>
+<div>
+  <h1> title from parent： {{ title }}</h1>
+  <h1> array from parent ： {{ arr }}</h1>
+</div>
+
 </template>
-
-<style scoped>
-
-</style>

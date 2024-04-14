@@ -3,7 +3,7 @@
  * @package:
  * @Function:
  * @author:        shenfz
- * @description:   利用computed属性
+ * @description:   利用computed属性的todolist
  * @date:         2024/3/24 6:32
  * @version:      v1.0.0
  * @email         1328919715@qq.com
@@ -24,9 +24,10 @@ const todos:Ref<ItemType[]> = ref([
   { id: id++, text: 'Learn Vue', done: false }
 ])
 
+
 const filteredTodos:Ref<ItemType[]> = computed(() => {
   // 根据 `todos.value` & `hideCompleted.value`
-  // 返回过滤后的 todo 项目
+  // 返回过滤后的  项目
  return hideCompleted.value?todos.value.filter((item) =>{
    return !item.done
  }):todos.value

@@ -9,7 +9,6 @@
  * @email         1328919715@qq.com
  */
 
-import ChildEmits from "@/components/emits/childEmits.vue";
 import {ref} from 'vue'
 
 let respMsg = ref('nothing')

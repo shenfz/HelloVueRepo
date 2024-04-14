@@ -11,14 +11,21 @@
 
 import {ref} from 'vue'
 // emit() 的第一个参数是事件的名称。其他所有参数都将传递给事件监听器
- const emitname = 'response'
+ const emitName:string = 'response'
  let sendYet = ref(false)
-const emiTs = defineEmits([emitname])
 
+//=========================  js 写法
+const emitJs = defineEmits([emitName,"on-click"])
 setTimeout(() =>{
-  emiTs(emitname,'hello 老登',"im tom")
+  emitJs(emitName,'hello 老登',"im tom")
   sendYet.value = true
 },2000)
+
+// ============================== ts 写法
+const emitsTs = defineEmits<{
+  (e:typeof emitName,name:string):void
+  (e:"on-click",name:string):void
+}>()
 
 
 </script>

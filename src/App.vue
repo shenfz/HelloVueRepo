@@ -1,17 +1,50 @@
 <script setup lang="ts">
 
+import UseCustomOrder1 from "@components/useCustomOrder/useCustomOrder1.vue";
 </script>
 <template>
-<to-ref></to-ref>
+ <div>
+   <use-custom-order1></use-custom-order1>
+ </div>
 </template>
-<style scoped>
- .a{
-   background-color: #535bf2;
- }
- .b{
-   background-color: #535bf2;
- }
- .c{
-   background-color: #535bf2;
- }
-</style>
+
+<script lang="ts">
+
+// interface Tree {
+//   name:string
+//   checked:boolean
+//   children?:Tree[]
+// }
+// 递归数据
+// const data = reactive<Tree[]>([
+//       {
+//         name:"1",
+//         checked:false,
+//         children:[{
+//           name:"1-1",
+//           checked:false
+//         }]
+//       },
+//       {
+//         name:"2",
+//         checked:true,
+//         children:[{
+//           name:"2-1",
+//           checked:false
+//         }]
+//       },
+//       {
+//         name:"3",
+//         checked:false,
+//         children:[{
+//           name:"3-1",
+//           checked:false,
+//           children:[{
+//             name:"3-1-1",
+//             checked:true
+//           }]
+//         }]
+//       }
+//     ]
+// )
+</script>
