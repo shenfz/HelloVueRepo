@@ -1,4 +1,5 @@
-# 练习
+# Components
+> 练习vue特性用的组件
 ## 目录
 * [useBindAndModel](./useBindAndModel)
 > 绑定事件及监听 `v-bind` `v-model`
@@ -63,6 +64,10 @@ app.config.globalProperties.$Bus = Mit
 > 使用自定义指令 ,实现vue的生命钩子和 `Directive`
 > 常用场景: 鉴权按钮
 
+* [useCustomPlugin](./useCustomPlugin)
+> 使用自定义插件 涉及 `defineExpose` 暴露方法，实现 `install`
+> 例如封装一个 `loading`加载提示框 ，可供全局调用
+> 做成全局可用的方式，以插件的形式 `app.Use(Loading)`
 
 ## 模板语法
 * 支持表达式，三元等等
