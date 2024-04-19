@@ -1,10 +1,5 @@
 <script setup lang="ts">
 
-import UseCustomOrder1 from "@components/useCustomOrder/useCustomOrder1.vue";
-import StyleScoped1 from "@/cssComponents/useStyleScoped/styleScoped1.vue";
-import DynamicStyle2 from "@/cssComponents/useStyleScoped/dynamicStyle2.vue";
-import UseStyleMudule1 from "@/cssComponents/useStyleModule/useStyleMudule1.vue";
-
 // 1. 使用加载插件 [useCustomPlugin]
 
 // const intance = getCurrentInstance()
@@ -16,7 +11,7 @@ import UseStyleMudule1 from "@/cssComponents/useStyleModule/useStyleMudule1.vue"
 </script>
 <template>
  <div>
-<use-style-mudule1></use-style-mudule1>
+<use-keep-live1></use-keep-live1>
  </div>
 </template>
 
