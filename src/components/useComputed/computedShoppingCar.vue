@@ -12,13 +12,13 @@
 // 1. 选项式的 需要实现set 和 get ，允许修改值
 // 2. 函数式的 只需要实现 getter，但是不允许修改值 ，只读的
 import {ref,computed,reactive} from 'vue'
-import {i, l} from "vite/dist/node/types.d-aGj9QkWt";
-let firstname = ref('zhang')
-let lastname = ref('san')
 
-// 选项式
-// let name = computed<string>({
-//   get() {
+// let firstname = ref('zhang')
+// let lastname = ref('san')
+
+// =======================================   选项式 name.value 可修改
+//   let name = computed<string>({
+//    get() {
 //     return firstname.value + '-' + lastname.value
 //   },
 //   set(newVal){
@@ -29,10 +29,11 @@ let lastname = ref('san')
 //   name.value = 'li-si'
 // }
 
-// 函数式
+// ===================================  函数式   name.value只读
 // let  name = computed(() => {
 //   return firstname.value + '-' + lastname.value
 // })
+
 
 // shopping car
 interface Data {

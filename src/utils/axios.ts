@@ -1,4 +1,3 @@
-import {ref} from "vue";
 
 export const axiosC = {
     get <T>(url:string):Promise<T> {

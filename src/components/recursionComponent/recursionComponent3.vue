@@ -8,7 +8,7 @@
  * @version:      v1.0.0
  * @email         1328919715@qq.com
  */
-import {reactive} from "vue";
+
 // 递归组件 绑定事件会参与冒泡，需要设定 阻止冒泡  @click.stop="eventHandler(item)"
 
 // 递归组件 使用递归的方法

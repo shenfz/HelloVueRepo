@@ -13,6 +13,8 @@
 
 import ChildExposed from "@/components/defineExpose/childExposed.vue";
 import {ref} from 'vue';
+
+// 获取子组件实例
 const childVue = ref<InstanceType<typeof ChildExposed>>()
 // 读取子组件的属性和调用方法
 console.log(childVue.value.exposedChildName)

@@ -3,13 +3,13 @@
  * @package:
  * @Function:
  * @author:        shenfz
- * @description:   使用reactive，readonly
+ * @description:
  * @date:         2024/3/28 4:34
  * @version:      v1.0.0
  * @email         1328919715@qq.com
  */
 
-import {reactive,readonly} from "vue";
+import {reactive} from "vue";
 
 interface Person {
   name?:string
@@ -18,12 +18,14 @@ interface Person {
 }
 
 let form = reactive<Person>({})
+// let formReadOnly = readonly(form)
 let arrs = reactive<{arr:string[]}>({
   arr: []
 })
-let list = reactive({name:"xxx"})
+// let list = reactive({name:"xxx"})
 const addArr = ['x','y','z']
 const submit = () => {
+  // formReadOnly.name ? formReadOnly.name = form.name : formReadOnly.name = form.name
   console.log(form)
 }
 const add = () => {

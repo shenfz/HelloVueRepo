@@ -3,22 +3,116 @@
 ## 目录
 * [useBindAndModel](./useBindAndModel)
 > 绑定事件及监听 `v-bind` `v-model`
+> v-bind简写 `:`,与各种属性值绑定
+ * 可引用变量/结构体 : `"v-bind = obj"`  `":name="name" `
+ * 结构属性:  `:name="obj.name"`
+ * 函数调用结构: `:title="`list-${var}`"`
+ * 数组: `:list="[1,2,3]"`
+
 * [useComputed](./useComputed)
 > 计算属性 `computed`
+  1. 选项式的 需要实现set 和 get ，允许修改值
+  2. 函数式的 只需要实现 getter，但是不允许修改值 ，只读的
+  3. 在vue3版本中，v-if和v-for不能同时使用。 【在vue2中v-for的优先级高于v-if ，在vue3版本中v-if优先级高于v-for】 
+
 * [defineProps](./defineProps)
-> 父组件给子组件传参 `defineProps`
+> 父组件给子组件传参 `defineProps` js 与 ts 有不同处
+  1. js 需要定义好接收的props 
+```js
+const props = defineProps({
+      title:{
+        msg: String,
+        default:"默认值"
+      },
+      arr:[]
+})
+```
+ 2. ts 使用 `withDefaults` 特有
+  ```ts
+withDefaults(defineProps<{
+title:string,
+arr:number[]
+}>(),{
+title: () => "默认值",
+arr:() =>{
+return [0,0,0]
+}
+})
+
+```
 * [defineEmits](./defineEmits)
 > 子组件给父组件传值 绑定事件触发 `defineEmits`，类似于订阅发布
+ 1. 父组件模板写法 `<child-emits @response = callback ></child-emits>` response 是事件名，callback是回调函数(参数与子组件定义的要对应)
+
 * [defineExpose](./defineExpose)
-> 父组件读取子组件的属性值和方法   `defineExpose` ,常用场景 ，子组件表单，暴露各种验证和清空方法给父组件使用
+> 父组件 读取子组件 的属性值和方法   `defineExpose` 
+> 常用场景 ,子组件表单，暴露各种验证和清空方法给父组件使用
+ 
 * [onMounted](./onMounted)
-> dom元素各种 加载/卸载/更新 的钩子函数
+> dom元素各种 加载/卸载/更新 的钩子函数 `总计八种`
+> v-if 处理的组件会触发 dom的加载和卸载，对应钩子会执行
+```ts
+// 创建完成
+onMounted(() =>{
+    console.log(' onMounted ')
+})
+```
+
 * [useRefs](./useRefFamily)
 > `ref`和`reactive`家族，一系列使用
+>  `ref`和`reactive` 区别： ref修改只能通过 obj.value.xx = xx ,reactive修改通过 obj.xx = xx
+>  `reactive` 会判定传入对象是否为obj，这些类型会直接返回【number,string,bool.symbol,undef】
+> `reactive`  可重入  即 reactive对象多次使用reactive(obj)，没意义（直接返回） => eg: reactive(reactive({}))
+> `reactive` 对象是 proxy ，没意义（直接返回）
+> `reactive` 对象 可叠加 `readonly`属性  => eg: readonly(reactive({})
+ 
+ 1. [refs.vue](./useRefFamily/refs.vue)): ref \ isRef \ shallowRef 
+ 2. [refDom.vue](./useRefFamily/refDom.vue) : 获取dom元素  绑定ref
+ 3. [customRef.vue](./useRefFamily/customRef.vue): 自定义 实现响应式 `customRef` 实现get/set
+ 4. [toRef.vue](./useRefFamily/toRef.vue): 针对响应式对象，提取某项值做单独修改，如果是非响应式，则不做任何操作
+ 5. [shallowReactive.vue](./useRefFamily/shallowReactive.vue):  shallowReactive 只支持浅层修改
+ 6. [reactive.vue](./useRefFamily/reactive.vue):   响应式，支持深度修改和不加value读取
+
+
 * [useSlots](./useSlots)
->  使用插槽 匿名，具名，作用域，和动态插槽
+>  使用插槽 `匿名` ，`具名`，`作用域`，和`动态插槽`
+  1. 匿名插槽
+  2. 具名插槽 ，可以v-slot简写为#
+  3. 作用域插槽 ， 父组件可以拿到子组件的数据
+  4. 动态插槽
+
 * [useWatchFamily](./useWatchFamily)
-> 侦听函数使用 `watch` and  `watchEffect`
+> 1. 侦听函数使用 `watch` ,监听多个值，配置选项
+```ts
+// 多个值监听  
+watch([msg,msg1],(newVal,oldVal)=>{
+    // 新旧值  也是数组
+    console.log(newVal,oldVal)
+},{
+    deep:true,  // 开启深度层级侦听
+    immediate:true, // 先把watch 中的 callback 调用一次
+    flush:'pre' // pre: 组件更新之前执行，sync:同步执行，post:组件更新之后执行
+})
+```
+> 2. 高级侦听  `watchEffect`  **会自动计算影响的值，并自动侦听**
+```ts
+let msg1 = ref<string>('')
+let msg2 = ref<string>('')
+// 返回一个停止回调
+const stop = watchEffect((oninvalidate) =>{
+  // 调用之前执行的函数
+  // 场景： 防抖，清除接口
+  oninvalidate(() =>{
+    console.log('before exec')
+  })
+  // 自动监听受影响的ref
+  console.log("====> msg1: ",msg1.value)
+  console.log("====> msg2: ",msg2.value)
+},{
+  flush:'post' // 页面dom 加载完成后再执行监听里面的内容
+})
+```
+
 * [useClass](./useClass)
 > vue中使用类 `构造函数`
 * [globalComponent](./globalComponent)

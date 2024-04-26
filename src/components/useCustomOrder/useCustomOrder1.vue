@@ -14,7 +14,7 @@
 // 通过实现 自定义指令，进行鉴权以及权限按钮的展示
 // permission
 
-import type {Directive, FunctionDirective} from "vue";
+import type {Directive} from "vue";
 
 localStorage.setItem('user','xiao')
 

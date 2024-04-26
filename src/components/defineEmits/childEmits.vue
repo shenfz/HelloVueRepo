@@ -21,12 +21,23 @@ setTimeout(() =>{
   sendYet.value = true
 },2000)
 
-// ============================== ts 写法
-const emitsTs = defineEmits<{
-  (e:typeof emitName,name:string):void
-  (e:"on-click",name:string):void
-}>()
+// ============================== ts 写法 1 泛型使用
+// const emitsTs = defineEmits<{
+//   (e:typeof emitName,name?:string):void
+//   (e:"on-click",name?:string):void
+// }>()
+//
+// setTimeout(() =>{
+//   emitsTs(emitName,'hello 老登')
+//   sendYet.value = true
+// },2000)
 
+//========================== ts 写法 2
+// const emits = defineEmits(['sendFatherData']);
+// const sendSon = () => {
+//   //3.发送方法，发送的数据
+//   emits('sendFatherData', '这是子组件发送过来的数据');
+// };
 
 </script>
 

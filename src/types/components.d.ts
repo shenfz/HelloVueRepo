@@ -14,7 +14,6 @@ declare module 'vue' {
     ChildA: typeof import('./../components/useTeleport/childA.vue')['default']
     ChildEmits: typeof import('./../components/defineEmits/childEmits.vue')['default']
     ChildExposed: typeof import('./../components/defineExpose/childExposed.vue')['default']
-    ChildWithSlots: typeof import('./../components/useSlots/childWithSlots.vue')['default']
     ComputedShoppingCar: typeof import('./../components/useComputed/computedShoppingCar.vue')['default']
     ComputedTodolist: typeof import('./../components/useComputed/computedTodolist.vue')['default']
     CustomRef: typeof import('./../components/useRefFamily/customRef.vue')['default']
@@ -22,10 +21,6 @@ declare module 'vue' {
     DynamicComs2: typeof import('./../components/dynamicComponents/dynamicComs2.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElInput: typeof import('element-plus/es')['ElInput']
-    ElSkeleton: typeof import('element-plus/es')['ElSkeleton']
-    ElSkeletonItem: typeof import('element-plus/es')['ElSkeletonItem']
-    ElTable: typeof import('element-plus/es')['ElTable']
-    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     EmitCom1: typeof import('./../components/useMitt/emitCom1.vue')['default']
     EmitCom2: typeof import('./../components/useMitt/emitCom2.vue')['default']
     EmitsFather: typeof import('./../components/defineEmits/emitsFather.vue')['default']
@@ -71,8 +66,5 @@ declare module 'vue' {
     Vbind: typeof import('./../components/useBindAndModel/vbind.vue')['default']
     Vmodel: typeof import('./../components/useBindAndModel/vmodel.vue')['default']
     Watch_demo: typeof import('./../components/useWatchFamily/watch_demo.vue')['default']
-  }
-  export interface ComponentCustomProperties {
-    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }

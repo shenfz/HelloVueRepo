@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 //import './style.css'
 import App from './App.vue'
-import Loading  from "@components/useCustomPlugin/loading";
+
 import mitt from "mitt";
 import {LoadT} from "@components/useCustomPlugin/loading/loading";
 

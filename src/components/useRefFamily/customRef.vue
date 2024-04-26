@@ -8,23 +8,23 @@
  * @version:      v1.0.0
  * @email         1328919715@qq.com
  */
-import {customRef} from "vue";
+// import {customRef} from "vue";
 // tracker 收集依赖
 // trigger 触发依赖
-function MyRef<T>(value:T){
-  return customRef((tracker,trigger) => {
-    return {
-      get () {
-        tracker()
-        return value
-      },
-      set (newValue) {
-        value = newValue
-        tracker()
-      }
-    }
-  })
-}
+// function MyRef<T>(value:T){
+//   return customRef((tracker,_) => {
+//     return {
+//       get () {
+//         tracker()
+//         return value
+//       },
+//       set (newValue) {
+//         value = newValue
+//         tracker()
+//       }
+//     }
+//   })
+// }
 
 </script>
 

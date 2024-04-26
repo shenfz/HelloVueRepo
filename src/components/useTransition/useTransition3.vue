@@ -18,31 +18,31 @@ import {ref} from "vue";
 const flag = ref<Boolean>(true)
 //=======================================   enter
 const EnterForm = (el:Element) =>{
-  console.log("进入之前")
+  console.log("进入之前",el)
 }
 const enterActive = (el:Element) =>{
-  console.log("过渡曲线")
+  console.log("过渡曲线",el)
 }
 const EnterTo = (el:Element) =>{
-  console.log("过渡完成")
+  console.log("过渡完成",el)
 }
 const EnterCanceled = (el:Element) =>{
   // 切换过快 导致的
-  console.log("动画被打断")
+  console.log("动画被打断",el)
 }
 //===================================  leave
 const LeaveForm = (el:Element) =>{
-  console.log("离开之前")
+  console.log("离开之前",el)
 }
 const Leave = (el:Element,done:Function) =>{
-  console.log("过渡曲线")
+  console.log("过渡曲线",el,done())
 }
 const AfterLeave = (el:Element) =>{
-  console.log("过渡完成")
+  console.log("过渡完成",el)
 }
 const LeaveCanceled = (el:Element) =>{
   // 切换过快 导致的
-  console.log("动画被打断")
+  console.log("动画被打断",el)
 }
 
 

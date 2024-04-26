@@ -12,8 +12,6 @@
 // 1. teleport 参数 [disabled] 动态切换开关，[to]传输至哪个 属性名或者标签
 // vh : 视口比例  50vh 就是50%的视口
 
-import ChildA from "@components/useTeleport/childA";
-
 </script>
 
 <template>

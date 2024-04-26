@@ -38,6 +38,7 @@ watch([msg,msg1],(newVal,oldVal)=>{
   immediate:true, // 先把此callback调用一次
   flush:'pre' // pre: 组件更新之前执行，sync:同步执行，post:组件更新之后执行
 })
+
 // 侦听单一属性
 watch(()=> msg1.foo.man.name,(newVal,oldValue)=>{
   console.log(newVal,oldValue)
